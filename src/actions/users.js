@@ -12,9 +12,10 @@ function fetchSuccess(payload) {
     }
 }
 
-function fetchError() {
+function fetchError(error) {
     return {
-        type: FETCH_ERROR
+        type: FETCH_ERROR,
+        error
     }
 }
 
@@ -33,5 +34,7 @@ export const getUsers = () => dispatch => {
         else{
             dispatch(fetchError()) //Действие, информирующее редюсер о том, что запрос завершился неудачей.
         }
-    })
+    }).catch(error => {
+       dispatch(fetchError(error))
+    });
 };

@@ -3,35 +3,40 @@ import { connect } from 'react-redux';
 import { getUsers } from '../../actions/users';
 import Menu from '../../components/Menu/Menu';
 
+/*const callMe(func){
+  func();
+}*/
+
 const User = ({ users, onGetUsers}) => {
-        //componentDidMount(){}
-     //для первоначальной загрузки стейта из api,
-    // не думаю что так правильно
-  /*  componentDidMount(){
-        onGetUsers();
-    }*/
+
+    if(users.didInvalidate) {
+         onGetUsers();//для первоначальной загрузки стейта из api,
+         // не думаю что так правильно
+     }
+     //const usr = onGetUsers();
+    let res;
+    if(users.isFetching) {
+        res = <div>Загрузка...</div> ;
+    }
+    else if(users.error) res = <div>{users.error}</div>;
+    else res = <ul>
+        {users.items.map((user, index) =>
+            <li key={index}>
+                id: {user.id}
+                username: {user.username}
+            </li>
+        )}
+    </ul>;
     return (
         <div>
         <Menu/>
             <div>
                 <button onClick={onGetUsers}>Get users</button>
             </div>
-            <ul>
-                {users.map((user, index) =>
-                    <li key={index}>
-                        id: {user.id}
-                        username: {user.username}
-                    </li>
-                )}
-            </ul>
+            {res}
         </div>
             );
 };
-/*const component(){
-    return componentDidMount(){
-        onGetUsers();
-    }
-}*/
 const mapStateToProps = (state, ownProps) => {
     console.log(ownProps);
     return {

@@ -6,18 +6,15 @@ import { getTracks } from '../../actions/tracks';
 import Menu from '../../components/Menu/Menu';
 
 const App = ({ tracks, onAddTrack, onFindTrack, onGetTracks, ownProps }) => {
-    console.log('ownProps', ownProps);
     let trackInput = '';
     let searchInput = '';
 
     const addTrack = () => {
-        console.log('addTrack', trackInput.value);
         onAddTrack(trackInput.value);
         trackInput.value = '';
     };
 
     const findTrack = () => {
-        console.log('findTrack', searchInput.value);
         onFindTrack(searchInput.value);
     };
 

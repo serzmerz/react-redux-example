@@ -8,6 +8,8 @@ class Menu extends Component {
                 <Link to="/">Tracks</Link>
                 <Link to="/about">About</Link>
                 <Link to="/user">User</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/protected">Protected</Link>
             </div>
         );
     }
