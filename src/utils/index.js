@@ -1,3 +1,4 @@
+import io from 'socket.io-client';
 /*export function createConstants(...constants) {
     return constants.reduce((acc, constant) => {
         acc[constant] = constant;
@@ -27,6 +28,6 @@ export function checkHttpStatus(response) {
 
 export function parseJSON(response) {
      return response.json()
-
-
 }
+
+export default io('http://localhost:3001');

@@ -8,6 +8,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-addons-linked-state-mixin": "^15.6.0",
+    "react-chat-ui": "0.0.28",
     "react-dom": "^15.6.1",
     "react-mixin": "^3.0.5",
     "react-redux": "5.0.5",

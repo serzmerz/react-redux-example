@@ -8,6 +8,8 @@ import users from './users';
 import auth from './auth';
 import data from './protectedData';
 import signup from './signup';
+import rooms from './room';
+import activeRoom from './activeRoom';
 
 export default combineReducers({
     routing: routerReducer,
@@ -17,5 +19,7 @@ export default combineReducers({
     auth,
     data,
     signup,
-    filterTracks
+    filterTracks,
+    rooms,
+    activeRoom
 })
