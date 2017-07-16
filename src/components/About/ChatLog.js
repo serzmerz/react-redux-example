@@ -14,7 +14,7 @@ export default (props) => {
                user: {message.user}
                message: {message.content}
            </li>
-       )
+       );
 
   return (
     <div>

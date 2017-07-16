@@ -10,15 +10,14 @@ const initialState = [
   ];
 
 export default function roomReducer(state = initialState, action) {
-  debugger
   switch(action.type) {
     case 'NEW_ROOM':
-      return [...state, action.payload]
+      return [...state, action.payload];
     case 'UPDATE_ROOM_LIST':
-      if(action.payload.data.length < 1){
-        action.payload.data = false
+      if(action.payload.rooms.length < 1){
+        action.payload.rooms = false
       }
-      return action.payload.data || state
+      return action.payload.rooms || state;
     default:
      return state;
   }

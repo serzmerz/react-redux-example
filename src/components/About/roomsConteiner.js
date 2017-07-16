@@ -7,15 +7,15 @@ import socket from '../../utils';
 
 class RoomsContainer extends Component {
   constructor(props){
-    super()
+    super(props);
     this.state = {
       input: '',
       connected: false
-    }
-    this.handleOnClick = this.handleOnClick.bind(this)
-    this.handleNewRoom = this.handleNewRoom.bind(this)
-    this.handleOnChange = this.handleOnChange.bind(this)
-    this.fetchRooms = this.fetchRooms.bind(this)
+    };
+    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleNewRoom = this.handleNewRoom.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.fetchRooms = this.fetchRooms.bind(this);
   }
 
   componentDidMount(){
@@ -23,14 +23,14 @@ class RoomsContainer extends Component {
   }
 
   handleOnClick(room){
-    socket.emit("unsubscribe")
-    socket.emit("subscribe", { room: room.id})
-    this.props.joinRoom(room)
+    socket.emit("unsubscribe");
+    socket.emit("subscribe", { room: room.id});
+    this.props.joinRoom(room);
   }
 
   handleNewRoom(ev) {
-    ev.preventDefault()
-    this.props.newRoom(this.state.input)
+    ev.preventDefault();
+    this.props.newRoom(this.state.input);
     this.setState({input: ''})
   }
 
@@ -40,26 +40,25 @@ class RoomsContainer extends Component {
 
   fetchRooms(){
     if (!this.state.connected) {
-      this.props.fetchRoomList()
+      this.props.fetchRoomList();
       this.state.connected = true
     }
   }
 
   render() {
     const rooms = this.props.rooms.map((room) => {
-    debugger
       return (
         <li key={room.title} onClick={this.handleOnClick.bind(null, room)}>
           {room.title}
         </li>
       )
-    })
+    });
 
     return (
       <div>
       <ul>
             {rooms}
-            {/*}<NewRoom handleOnChange={this.handleOnChange}
+            {/*<NewRoom handleOnChange={this.handleOnChange}
              handleNewRoom={this.handleNewRoom}
              value={this.state.input}/>*/}
 </ul>

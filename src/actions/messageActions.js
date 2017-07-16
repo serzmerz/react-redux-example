@@ -3,10 +3,9 @@ import {API_URL} from '../constants/actions';
 
 export function saveMessage(data) {
   let payload;
-  // debugger
     payload = {room: data.room, newMessage:
        {user: data.newMessage.user,
-         content: data.newMessage.message}}
+         content: data.newMessage.message}};
 
   return { type: 'NEW_MESSAGE', payload }
 }

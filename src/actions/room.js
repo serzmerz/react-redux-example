@@ -2,7 +2,7 @@ import { checkHttpStatus, parseJSON } from '../utils';
 import {API_URL} from '../constants/actions';
 
 export function joinRoom(roomData) {
-  const payload = roomData.response.messages
+  const payload = roomData.response.messages;
   return { type: 'JOIN_ROOM', payload}
 }
 
@@ -34,7 +34,7 @@ export function updateRoomList(payload){
   return { type: 'UPDATE_ROOM_LIST', payload}
 }
 export function fetchRoomData(){
-  console.log('in fetch room')
+  console.log('in fetch room');
   return (dispatch) => {
     return fetch(API_URL+'/chat/messages')
     .then(checkHttpStatus)
@@ -53,7 +53,7 @@ export function fetchRoomList(){
     .then(checkHttpStatus)
     .then(parseJSON)
       .then((response) => {
-        dispatch(updateRoomList(response))
+        dispatch(updateRoomList(response.response))
       })
     //return response
 

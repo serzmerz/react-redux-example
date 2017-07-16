@@ -18,7 +18,7 @@ class About extends Component {
       input : '',
       messages: props.messages,
       connected: false
-    }
+    };
     this._init = this._init.bind(this)
     /*this.handleOnChange = this.handleOnChange.bind(this)
      this.handleOnSubmit = this.handleOnSubmit.bind(this)
@@ -36,8 +36,8 @@ class About extends Component {
 
   _init(){
     if(!(this.state.connected)){
-      this.props.fetchRoom()
-      socket.emit('subscribe', {room: this.props.room.id})
+      this.props.fetchRoom();
+      socket.emit('subscribe', {room: this.props.room.id});
         this.setState({connected: true})
     }
   }
